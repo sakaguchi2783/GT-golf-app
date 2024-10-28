@@ -1,0 +1,123 @@
+.biorhythm-result-container {
+    padding: 10px;
+    text-align: center;
+}
+
+.intro-text {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.result-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.result-text {
+    color: #007bff;
+}
+
+.next-phase-text {
+    color: #ff5733;
+}
+
+.result-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+@media (min-width: 600px) {
+    .result-grid {
+      flex-direction: row;
+    }
+}
+
+.phase {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: left;
+    background-color: #cccccc;
+}
+
+.blue-phase {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.arrow {
+    font-size: 24px;
+    font-weight: bold;
+    color: #011223;
+    display: flex;
+    align-items: center;
+}
+
+.type-result {
+    margin-top: 20px;
+}
+
+.type-result h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.user-type-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.state-table {
+    display: grid;
+    gap: 5px;
+    margin-top: 20px;
+    border-spacing: 0;
+    overflow-x: auto; /* 横スクロール対応 */
+    overflow-y: auto; /* 縦スクロール */
+    max-height: 400px; /* 必要に応じて高さ制限を追加 */
+}
+
+.state-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.highlight-type .type-cell {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.type-cell {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    background-color: #e0e0e0;
+}
+
+.state-cell {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.state-cell.blue-phase {
+    background-color: #007bff;
+    color: #fff;
+}

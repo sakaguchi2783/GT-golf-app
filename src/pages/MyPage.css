@@ -1,0 +1,16 @@
+.my-page-container {
+    padding: 20px;
+  }
+  
+  .user-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .user-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  

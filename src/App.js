@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar';
+import BiorhythmResult from './pages/BiorhythmResult'; // バイオリズム結果画面のインポート
+
+
+import Home from './pages/Home';
+import Style4 from './pages/Style4';
+import Biorhythm from './pages/Biorhythm';
+import Score from './pages/Score';
+import Practice from './pages/Practice';
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/style4" element={<Style4 />} />
+          <Route path="/biorhythm" element={<Biorhythm />} />
+          <Route path="/biorhythm-result" element={<BiorhythmResult />} /> {/* 結果ページのルートを追加 */}
+          <Route path="/score" element={<Score />} />
+          <Route path="/practice" element={<Practice />} />
+          <Route path="/mypage" element={<MyPage />} />
+        </Routes>
+        <NavigationBar />
+      </div>
+    </Router>
   );
 }
 
