@@ -6,8 +6,6 @@ import BiorhythmResult from './pages/BiorhythmResult'; // バイオリズム結�
 import Home from './pages/Home';
 import Style4 from './pages/Style4';
 import Biorhythm from './pages/Biorhythm';
-import Score from './pages/Score';
-import Practice from './pages/Practice';
 import MyPage from './pages/MyPage';
 
 function App() {
@@ -19,8 +17,6 @@ function App() {
           <Route path="/style4" element={<Style4 />} />
           <Route path="/biorhythm" element={<Biorhythm />} />
           <Route path="/biorhythm-result" element={<BiorhythmResult />} /> {/* 結果ページのルートを追加 */}
-          <Route path="/score" element={<Score />} />
-          <Route path="/practice" element={<Practice />} />
           <Route path="/mypage" element={<MyPage />} />
         </Routes>
         <NavigationBar />

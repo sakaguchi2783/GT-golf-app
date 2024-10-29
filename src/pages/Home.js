@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
-import './Home.css'; // スマホ対応用のCSSを追加
+import './Home.css';
 
 const Home = () => {
   const [userId, setUserId] = useState(null); // 現在のユーザーID
   const [existingId, setExistingId] = useState(''); // 入力された既存のID
   const [isStyle4Complete, setIsStyle4Complete] = useState(false); // スタイル4診断が済んだかどうか
   const [nextId, setNextId] = useState(null); // 次の5桁のID番号
+
+  // タイトルに表示するテキスト（タイピングエフェクトなし）
+  const titleText = '『あんたの好不調がわかるアプリ』';
 
   // 次のID番号を取得
   const fetchNextId = async () => {
@@ -64,13 +67,13 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>『あんたの好不調がわかるアプリ』</h1>
-      <p>「タイプ診断」＆「バイオリズム診断」へようこそ</p>
-      <p>２つの診断で自身のパフォーマンスを最大限に！</p>
+      <h1 className="app-title">{titleText}</h1>
+      <p className="subtitle">「タイプ診断」＆「バイオリズム診断」へようこそ</p>
+      <p className="subtitle">２つの診断で自身のパフォーマンスを最大限に！</p>
 
       {!userId ? (
         <>
-          <div className="id-section">
+          <div className="id-section id-box">
             <h2>■初めてIDを発行する場合</h2>
             {nextId ? (
               <button onClick={generateUserId} className="generate-btn">IDを発行 (次のID: {nextId})</button>
@@ -79,9 +82,7 @@ const Home = () => {
             )}
           </div>
 
-<p>　</p>
-
-          <div className="id-section">
+          <div className="id-section id-box">
             <h2>■既にIDをお持ちの場合</h2>
             <p>4桁の番号を下記に入力してください</p>
             <p>※いきなりバイオリズム診断からスタートできます</p>
