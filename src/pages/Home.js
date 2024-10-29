@@ -68,7 +68,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1 className="app-title">{titleText}</h1>
-      <p className="subtitl">「タイプ診断」＆「バイオリズム診断」へようこそ</p>
+      <p className="subtitle">「タイプ診断」＆「バイオリズム診断」へようこそ</p>
       <p className="subtitle">２つの診断で自身のパフォーマンスを最大限に！</p>
 
       {!userId ? (
