@@ -1,0 +1,30 @@
+.icon-navigation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .nav-icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .nav-icon img {
+    width: 48px;  /* Adjust size if necessary */
+    height: 48px;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+  }
+  
+  .nav-icon.active img {
+    border-bottom: 2px solid #007bff; /* Optional: highlight active icon */
+  }
+  
