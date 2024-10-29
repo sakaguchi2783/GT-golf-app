@@ -84,7 +84,7 @@ const Home = () => {
 
           <div className="id-section id-box">
             <h3>■既にIDをお持ちの場合</h3>
-            <p>4桁の番号を下記に入力してください</p>
+            <p>発行済のID番号を下記に入力してください</p>
             <p>※バイオリズム診断からスタートできます</p>
             <input
               type="text"
