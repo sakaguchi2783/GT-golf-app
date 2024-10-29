@@ -74,7 +74,7 @@ const Home = () => {
       {!userId ? (
         <>
           <div className="id-section id-box">
-            <h2>■初めてIDを発行する場合</h2>
+            <h3>■初めてIDを発行する場合</h3>
             {nextId ? (
               <button onClick={generateUserId} className="generate-btn">IDを発行 (次のID: {nextId})</button>
             ) : (
@@ -83,7 +83,7 @@ const Home = () => {
           </div>
 
           <div className="id-section id-box">
-            <h2>■既にIDをお持ちの場合</h2>
+            <h3>■既にIDをお持ちの場合</h3>
             <p>4桁の番号を下記に入力してください</p>
             <p>※いきなりバイオリズム診断からスタートできます</p>
             <input
