@@ -3,7 +3,7 @@
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
 .app-title {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'; // useEffectを追加
+import './Style4.css';
 import { Radar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
