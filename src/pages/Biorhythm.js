@@ -14,46 +14,46 @@ const questions = [
 
 const options = [
   [
-    { label: 'a) とても安定している', value: 1 },
-    { label: 'b) 少し揺れ動いているが、コントロールできる', value: 2 },
-    { label: 'c) 感情が不安定である', value: 3 },
-    { label: 'd) 非常に不安定で、コントロールが難しい', value: 4 }
+    { label: 'とても安定している', value: 1 },
+    { label: '少し揺れ動いているが、コントロールできる', value: 2 },
+    { label: '感情が不安定である', value: 3 },
+    { label: '非常に不安定で、コントロールが難しい', value: 4 }
   ],
   [
-    { label: 'a) ほとんど感じない', value: 1 },
-    { label: 'b) 時々感じる', value: 2 },
-    { label: 'c) 頻繁に感じる', value: 3 },
-    { label: 'd) ほぼ常に感じる', value: 4 }
+    { label: 'ほとんど感じない', value: 1 },
+    { label: '時々感じる', value: 2 },
+    { label: '頻繁に感じる', value: 3 },
+    { label: 'ほぼ常に感じる', value: 4 }
   ],
   [
-    { label: 'a) とても円滑で、スムーズに交流できている', value: 1 },
-    { label: 'b) 時々難しいが、全般的に問題ない', value: 2 },
-    { label: 'c) しばしば衝突や誤解がある', value: 3 },
-    { label: 'd) 現在、他者とのコミュニケーションが難しいと感じる', value: 4 }
+    { label: 'とても円滑で、スムーズに交流できている', value: 1 },
+    { label: '時々難しいが、全般的に問題ない', value: 2 },
+    { label: 'しばしば衝突や誤解がある', value: 3 },
+    { label: '現在、他者とのコミュニケーションが難しいと感じる', value: 4 }
   ],
   [
-    { label: 'a) まったく感じない', value: 1 },
-    { label: 'b) たまに感じる', value: 2 },
-    { label: 'c) 頻繁に感じる', value: 3 },
-    { label: 'd) ほぼ毎日感じる', value: 4 }
+    { label: 'まったく感じない', value: 1 },
+    { label: 'たまに感じる', value: 2 },
+    { label: '頻繁に感じる', value: 3 },
+    { label: 'ほぼ毎日感じる', value: 4 }
   ],
   [
-    { label: 'a) 完全にコントロールできている', value: 1 },
-    { label: 'b) 大部分はコントロールできている', value: 2 },
-    { label: 'c) 時々コントロールが難しい', value: 3 },
-    { label: 'd) ほとんどコントロールできていない', value: 4 }
+    { label: '完全にコントロールできている', value: 1 },
+    { label: '大部分はコントロールできている', value: 2 },
+    { label: '時々コントロールが難しい', value: 3 },
+    { label: 'ほとんどコントロールできていない', value: 4 }
   ],
   [
-    { label: 'a) まったくない', value: 1 },
-    { label: 'b) 少しだけある', value: 2 },
-    { label: 'c) かなりの頻度である', value: 3 },
-    { label: 'd) すぐ気分が変わってしまう自分に嫌気がさす', value: 4 }
+    { label: 'まったくない', value: 1 },
+    { label: '少しだけある', value: 2 },
+    { label: 'かなりの頻度である', value: 3 },
+    { label: 'すぐ気分が変わってしまう自分に嫌気がさす', value: 4 }
   ],
   [
-    { label: 'a) 十分に確保できている', value: 1 },
-    { label: 'b) 時々確保できている', value: 2 },
-    { label: 'c) あまり確保できていない', value: 3 },
-    { label: 'd) ほとんど確保できていない', value: 4 }
+    { label: '十分に確保できている', value: 1 },
+    { label: '時々確保できている', value: 2 },
+    { label: 'あまり確保できていない', value: 3 },
+    { label: 'ほとんど確保できていない', value: 4 }
   ]
 ];
 

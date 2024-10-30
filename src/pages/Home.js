@@ -104,7 +104,7 @@ const Home = () => {
               placeholder="IDを入力"
               className="id-input"
             />
-            <button onClick={checkExistingId} className="check-btn">IDを入力したぜ！</button>
+            <button onClick={checkExistingId} className="check-btn">ログイン</button>
           </div>
         </>
       ) : (
