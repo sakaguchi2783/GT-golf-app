@@ -262,7 +262,7 @@ await supabase
       {!result ? (
         <div className="question-container">
           <h1>スタイル４診断</h1>
-          <p>まずここでは、あんたのタイプを診断します。</p>
+          <p>まず最初に、あんたのタイプを診断します。</p>
           <p>下記の質問に順番に答えてみよう！</p>
           <div className="question-box">
             <p className="question-text">{questionsData[currentQuestion].text}</p>

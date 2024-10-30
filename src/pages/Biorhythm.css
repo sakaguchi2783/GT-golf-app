@@ -1,40 +1,80 @@
 .biorhythm-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .answer-options button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.intro-text h2, .intro-text h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.intro-text p {
+  font-size: 14px;
+  line-height: 1.6; /* 行間を広げて読みやすく */
+  margin-bottom: 15px;
+  text-align: justify; /* テキストを均等配置 */
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #1b334d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.question-section h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.question-box {
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.option input[type="radio"] {
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
   .biorhythm-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .answer-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .answer-button {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px 0;
     padding: 10px;
-    font-size: 16px;
-    text-align: left;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-    color: #000; /* テキストを黒に設定 */
-    transition: background-color 0.3s ease;
   }
-  
-  .answer-button:hover {
-    background-color: #e0e0e0;
+
+  .intro-text p {
+    font-size: 12px; /* モバイル向けにフォントサイズを調整 */
+    line-height: 1.4;
   }
-  
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .option {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

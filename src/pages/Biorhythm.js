@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Biorhythm.css';
 
-// 質問データ
-const questionsData = [
+const questions = [
+  // 質問内容を配列で設定
   '●『今日、感情的にどれくらい安定していると感じますか？』',
   '●『最近、ストレスや不安をどれくらい感じていますか？』',
   '●『人とのコミュニケーションはどうですか？』',
@@ -60,45 +60,92 @@ const options = [
 ];
 
 const Biorhythm = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState([]);
+  const [step, setStep] = useState(1); 
+  const [answers, setAnswers] = useState(Array(questions.length).fill(''));
   const navigate = useNavigate();
 
-  const handleAnswer = (value) => {
-    setAnswers([...answers, value]);
-    if (currentQuestion < questionsData.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      calculateResult();
-    }
+  const handleNextStep = () => setStep(step + 1);
+
+  const handleChange = (questionIndex, value) => {
+    const newAnswers = [...answers];
+    newAnswers[questionIndex] = value;
+    setAnswers(newAnswers);
   };
 
-  const calculateResult = () => {
-    const totalScore = answers.reduce((acc, val) => acc + val, 0);
-    let result;
-    if (totalScore <= 10) {
-      result = '目標設定';
-    } else if (totalScore <= 14) {
-      result = '実行・試験';
-    } else if (totalScore <= 18) {
-      result = '振り返り';
+  const handleSubmit = () => {
+    const total = answers.reduce((acc, curr) => acc + Number(curr), 0);
+    let result = '';
+
+    if (total <= 7) {
+      result = '戦争・復讐劇 系';
+    } else if (total <= 14) {
+      result = '戦後サバイバル系';
+    } else if (total <= 21) {
+      result = '弱者が強者を倒す系';
     } else {
-      result = '改善';
+      result = '平和な日常系';
     }
+
     navigate(`/biorhythm-result?result=${result}`);
   };
 
   return (
     <div className="biorhythm-container">
-      <h1>バイオリズム診断</h1>
-      <p>{questionsData[currentQuestion]}</p>
-      <div className="answer-options">
-        {options[currentQuestion].map((option, index) => (
-          <button key={index} onClick={() => handleAnswer(option.value)}>
-            {option.label}
-          </button>
-        ))}
-      </div>
+      {step === 1 && (
+        <div className="intro-text">
+          <h2>バイオリズム診断</h2>
+          <h3>「あなたの好不調がわかる！」</h3>
+          <p>
+            バイオリズム診断へようこそ！<br />
+            今から、あなたの感情的なことに触れていきます。<br />
+            <br />
+            あなたは普段、YouTubeやNETFLIXなどの動画配信サービスから<br />
+            ドラマや映画、ニュースやエンタメを見ていますか？<br />
+            <br />
+            絶対、見てますよね？<br />
+            <br />
+            今、すでに夢中になっている番組や作品があるかもしれませんが、<br />
+            実は誰もが、潜在的に「“今は”こんなジャンルが見たい！」<br />
+            という意識を常に持っています。<br />
+            <br />
+            その潜在意識を、あなたは明確に把握していますか？<br />
+            「今は、甘いものが食べたい・・・次は、辛いものを食べたい…」という、<br />
+            食と同じように、見る映画やドラマのジャンルにも<br />
+            潜在的な欲求が誰にもあります。<br />
+            <br />
+            本や動画、様々なコンテンツがありますが、<br />
+            「あなたが潜在的に欲している物事」<br />
+            まず、それを探るために「あなたが見たいであろう…」<br />
+            映画やドラマなどのジャンルを探し、<br />
+            潜在的欲求を明確にしてみましょう。
+          </p>
+          <button onClick={handleNextStep}>次へ</button>
+        </div>
+      )}
+
+      {step === 2 && (
+        <div className="question-section">
+          <h2>質問に答えてください</h2>
+          {questions.map((question, questionIndex) => (
+            <div key={questionIndex} className="question-box">
+              <p>{question}</p>
+              {options[questionIndex].map((option, optionIndex) => (
+                <label key={optionIndex} className="option">
+                  <input
+                    type="radio"
+                    name={`question-${questionIndex}`}
+                    value={option.value}
+                    checked={answers[questionIndex] === option.value}
+                    onChange={() => handleChange(questionIndex, option.value)}
+                  />
+                  {option.label}
+                </label>
+              ))}
+            </div>
+          ))}
+          <button onClick={handleSubmit}>診断結果を見る</button>
+        </div>
+      )}
     </div>
   );
 };
