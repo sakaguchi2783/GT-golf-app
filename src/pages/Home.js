@@ -3,15 +3,33 @@ import { supabase } from '../supabaseClient';
 import './Home.css';
 
 const Home = () => {
-  const [userId, setUserId] = useState(null); // 現在のユーザーID
-  const [existingId, setExistingId] = useState(''); // 入力された既存のID
-  const [isStyle4Complete, setIsStyle4Complete] = useState(false); // スタイル4診断が済んだかどうか
-  const [nextId, setNextId] = useState(null); // 次の5桁のID番号
+  const [userId, setUserId] = useState(null);
+  const [existingId, setExistingId] = useState('');
+  const [isStyle4Complete, setIsStyle4Complete] = useState(false);
+  const [nextId, setNextId] = useState(null);
 
-  // タイトルに表示するテキスト（タイピングエフェクトなし）
   const titleText = '『あんたの好不調がわかるアプリ』';
 
-  // 次のID番号を取得
+  useEffect(() => {
+    fetchNextId();
+
+    // ここを追加した: スクロール位置の保持
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition, 10));
+    }
+
+    const handleScroll = () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const fetchNextId = async () => {
     const { data, error } = await supabase
       .from('users')
@@ -23,16 +41,10 @@ const Home = () => {
       console.error('ID取得エラー:', error.message);
     } else {
       const lastId = data.length > 0 ? data[0].id : 0;
-      setNextId(String(lastId + 1).padStart(5, '0')); // 5桁でパディング
+      setNextId(String(lastId + 1).padStart(5, '0'));
     }
   };
 
-  // 初回レンダリング時に次のID番号を取得
-  useEffect(() => {
-    fetchNextId();
-  }, []);
-
-  // Supabaseを使ってユーザーIDを発行
   const generateUserId = async () => {
     const { data, error } = await supabase
       .from('users')
@@ -44,11 +56,10 @@ const Home = () => {
     } else {
       const newUserId = data[0].id;
       setUserId(newUserId);
-      localStorage.setItem('user_id', newUserId); // ローカルストレージに保存
+      localStorage.setItem('user_id', newUserId);
     }
   };
 
-  // 既存IDの確認
   const checkExistingId = async () => {
     const { data, error } = await supabase
       .from('users')
@@ -59,7 +70,7 @@ const Home = () => {
       console.error('ID確認エラー:', error.message);
     } else if (data.length > 0) {
       setUserId(existingId);
-      setIsStyle4Complete(Boolean(data[0].type)); // タイプ診断済みかどうかを確認
+      setIsStyle4Complete(Boolean(data[0].type));
     } else {
       alert('IDが見つかりませんでした。');
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // useEffectを追加
 import { Radar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -236,6 +236,24 @@ function Style4() {
   const [answers, setAnswers] = useState({ エース: 0, バランサー: 0, パワー: 0, フレックス: 0 });
   const [result, setResult] = useState(null);
 
+  useEffect(() => {
+    // ここを追加した: スクロール位置の保持
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition, 10));
+    }
+
+    const handleScroll = () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const handleAnswer = (type) => {
     setAnswers((prev) => ({ ...prev, [type]: prev[type] + 1 }));
     if (currentQuestion < questionsData.length - 1) {
@@ -249,12 +267,11 @@ function Style4() {
     const maxType = Object.keys(answers).reduce((a, b) => answers[a] > answers[b] ? a : b);
     setResult(maxType);
 
-    // Supabaseに結果を保存する
     const userId = localStorage.getItem('user_id');
-await supabase
-  .from('users')
-  .update({ type: `${maxType}タイプ` })  // ここでSupabaseに「○○タイプ」という形式で保存
-  .eq('id', userId);
+    await supabase
+      .from('users')
+      .update({ type: `${maxType}タイプ` })
+      .eq('id', userId);
   };
 
   return (
@@ -300,19 +317,16 @@ function Results({ result, answers }) {
     <div>
       <h2>診断結果</h2>
       <h3>あなたは {result} タイプです</h3>
-
       <div style={{ margin: '20px 0', padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
         <h4>【{result}タイプの特徴】</h4>
         {typeCharacteristics[result].map((char, index) => (
           <p key={index}>{char}</p>
         ))}
       </div>
-
       <div style={{ width: '300px', height: '300px', margin: '0 auto' }}>
         <Radar data={data} />
       </div>
-
-      <button 
+      <button
         style={{ padding: '10px 20px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '8px', marginTop: '20px' }}
         onClick={() => window.location.href = '/biorhythm'}
       >
