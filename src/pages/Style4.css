@@ -42,7 +42,7 @@ h1, h2, h3 {
 
 /* 診断結果のタイトルを調整 */
 .result-title {
-    font-size: 20px;
+    font-size: 16px;
     color: #007bff;
     margin-top: 0;
     margin-bottom: 10px;

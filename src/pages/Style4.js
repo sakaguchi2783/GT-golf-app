@@ -311,7 +311,7 @@ function Results({ result, answers }) {
 
   return (
     <div className="results-container">
-      <h3 className="result-title">スタイル４診断結果</h3>
+      <p className="result-title">スタイル４診断結果</p>
       <h3 className="result-type">あなたは {result} タイプです</h3>
       <div className="characteristics-box">
         <p className="result-text">●{result}タイプの特徴●</p>
