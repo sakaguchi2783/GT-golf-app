@@ -48,6 +48,13 @@ h1, h2, h3 {
     margin-bottom: 10px;
 }
 
+.result-text {
+    font-size: 14px;
+    color: #0659b3;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
 .result-type {
     font-size: 18px;
     color: #333;
@@ -78,8 +85,8 @@ h1, h2, h3 {
 
 /* チャートコンテナのサイズを調整 */
 .chart-container {
-    width: 240px; /* モバイル表示を考慮して縮小 */
-    height: 240px;
+    width: 260px; /* モバイル表示を考慮して縮小 */
+    height: 260px;
     margin: 0 auto;
 }
 
