@@ -312,7 +312,7 @@ function Results({ result, answers }) {
   return (
     <div className="results-container">
       <p className="result-title">スタイル４診断結果</p>
-      <h3 className="result-type">あなたは {result} タイプです</h3>
+      <p className="result-type">あなたは {result} タイプです</p>
       <div className="characteristics-box">
         <p className="result-text">●{result}タイプの特徴●</p>
         {typeCharacteristics[result].map((char, index) => (
