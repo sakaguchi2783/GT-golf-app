@@ -79,8 +79,8 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1 className="app-title">{titleText}</h1>
-      <p className="subtitle">「タイプ診断」＆「バイオリズム診断」へようこそ</p>
-      <p className="subtitle">２つの診断で自身のパフォーマンスを最大限に！</p>
+      <p className="subtitle">「タイプ診断」＆「バイオリズム診断」へようこそ<br />
+        ２つの診断で自身のパフォーマンスを最大限に！</p>
 
       {!userId ? (
         <>
@@ -95,8 +95,8 @@ const Home = () => {
 
           <div className="id-section id-box">
             <h3>■既にIDをお持ちの場合</h3>
-            <p>発行済のID番号を下記に入力してください</p>
-            <p>※バイオリズム診断からスタートできます</p>
+            <p>発行済のID番号を下記に入力してください<br />
+              ※バイオリズム診断からスタートできます</p>
             <input
               type="text"
               value={existingId}
@@ -104,7 +104,7 @@ const Home = () => {
               placeholder="IDを入力"
               className="id-input"
             />
-            <button onClick={checkExistingId} className="check-btn">IDを確認</button>
+            <button onClick={checkExistingId} className="check-btn">IDを入力したぜ！</button>
           </div>
         </>
       ) : (

@@ -16,10 +16,10 @@
 }
 
 .subtitle {
-  font-size: 12px; /* フォントサイズを小さく */
+  font-size: 14px; /* フォントサイズを小さく */
   color: #666;
   margin: 5px 0; /* 上下の余白を減らす */
-  line-height: 0.9; /* 行間を詰める */
+  line-height: 1.2; /* 行間を詰める */
 }
 
 

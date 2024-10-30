@@ -274,8 +274,9 @@ function Style4() {
       {!result ? (
         <div className="question-container">
           <h1 className="title">スタイル４診断</h1>
-          <p className="intro-text">まず最初に、あんたのタイプを診断します。</p>
-          <p className="intro-text">下記の質問に順番に答えてみよう！</p>
+          <p className="intro-text">まず最初に、あんたのタイプを診断します。<br />
+          下記の質問に順番に答えてみよう！
+          </p>
           <div className="question-box">
             <p className="question-text">{questionsData[currentQuestion].text}</p>
             <div className="options-container">
