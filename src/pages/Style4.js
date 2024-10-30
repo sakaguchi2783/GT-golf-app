@@ -314,7 +314,7 @@ function Results({ result, answers }) {
       <h2 className="result-title">スタイル４診断結果</h2>
       <h3 className="result-type">あなたは {result} タイプです</h3>
       <div className="characteristics-box">
-        <h4>【{result}タイプの特徴】</h4>
+        <p className="result-type">●{result}タイプの特徴●</p>
         {typeCharacteristics[result].map((char, index) => (
           <p key={index}>{char}</p>
         ))}
