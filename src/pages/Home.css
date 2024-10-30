@@ -16,15 +16,15 @@
 }
 
 .subtitle {
-  font-size: 14px; /* フォントサイズを小さく */
+  font-size: 12px; /* フォントサイズを小さく */
   color: #666;
   margin: 5px 0; /* 上下の余白を減らす */
-  line-height: 1.2; /* 行間を詰める */
+  line-height: 0.9; /* 行間を詰める */
 }
 
 
 .fade-in-text {
-  font-size: 14px;
+  font-size: 12px;
   color: #666;
   margin-top: 10px;
   animation: slideIn 1s ease-in-out forwards;

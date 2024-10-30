@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // useEffectを追加
+import React, { useState, useEffect } from 'react';
 import './Style4.css';
 import { Radar } from 'react-chartjs-2';
 import {
@@ -11,7 +11,6 @@ import {
   Legend,
 } from 'chart.js';
 import { supabase } from '../supabaseClient';
-import './App.css';
 
 ChartJS.register(
   RadialLinearScale,
@@ -238,18 +237,14 @@ function Style4() {
   const [result, setResult] = useState(null);
 
   useEffect(() => {
-    // ここを追加した: スクロール位置の保持
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
       window.scrollTo(0, parseInt(scrollPosition, 10));
     }
-
     const handleScroll = () => {
       sessionStorage.setItem("scrollPosition", window.scrollY);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -267,7 +262,6 @@ function Style4() {
   const calculateResult = async () => {
     const maxType = Object.keys(answers).reduce((a, b) => answers[a] > answers[b] ? a : b);
     setResult(maxType);
-
     const userId = localStorage.getItem('user_id');
     await supabase
       .from('users')
@@ -279,9 +273,9 @@ function Style4() {
     <div className="container">
       {!result ? (
         <div className="question-container">
-          <h1>スタイル４診断</h1>
-          <p>まず最初に、あんたのタイプを診断します。</p>
-          <p>下記の質問に順番に答えてみよう！</p>
+          <h1 className="title">スタイル４診断</h1>
+          <p className="intro-text">まず最初に、あんたのタイプを診断します。</p>
+          <p className="intro-text">下記の質問に順番に答えてみよう！</p>
           <div className="question-box">
             <p className="question-text">{questionsData[currentQuestion].text}</p>
             <div className="options-container">
@@ -315,23 +309,23 @@ function Results({ result, answers }) {
   };
 
   return (
-    <div>
-      <h2>診断結果</h2>
-      <h3>あなたは {result} タイプです</h3>
-      <div style={{ margin: '20px 0', padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
+    <div className="results-container">
+      <h2 className="result-title">スタイル４診断結果</h2>
+      <h3 className="result-type">あなたは {result} タイプです</h3>
+      <div className="characteristics-box">
         <h4>【{result}タイプの特徴】</h4>
         {typeCharacteristics[result].map((char, index) => (
           <p key={index}>{char}</p>
         ))}
       </div>
-      <div style={{ width: '300px', height: '300px', margin: '0 auto' }}>
+      <div className="chart-container">
         <Radar data={data} />
       </div>
       <button
-        style={{ padding: '10px 20px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '8px', marginTop: '20px' }}
+        className="next-button"
         onClick={() => window.location.href = '/biorhythm'}
       >
-        次はバイオリズムを診断へ
+        次はバイオリズム診断へ
       </button>
     </div>
   );

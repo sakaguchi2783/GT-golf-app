@@ -1,7 +1,88 @@
+/* コンテナの基本設定 */
 .container {
-    padding: 20px;
-    max-width: 600px;
+    padding: 9px 17px; /* 上部の余白を減らし、画面上部に表示 */
+    max-width: 500px;
     margin: 0 auto;
     text-align: center;
-  }
-  
+    font-family: Arial, sans-serif;
+}
+
+/* タイトルのポップエフェクト */
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 10px; /* 余白を少し縮小 */
+}
+
+.title {
+    font-size: 24px;
+    animation: pop 0.5s ease-in-out infinite alternate;
+}
+
+.intro-text {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #080808;
+}
+
+.question-box, .characteristics-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px auto;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    text-align: left; /* テキストを左寄せに変更 */
+}
+
+.characteristics-box p {
+    margin: 5px 0;
+    padding-left: 10px; /* 左にインデントを追加して揃え */
+}
+
+/* 診断結果のタイトルを上部に調整 */
+.result-title {
+    font-size: 24px;
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* ボタンのデザイン */
+.answer-button, .next-button {
+    background-color: #153d67;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.answer-button:hover, .next-button:hover {
+    background-color: #0056b3;
+}
+
+.results-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.result-type {
+    font-size: 20px;
+    color: #333;
+    margin-top: 2px;
+}
+
+/* チャートコンテナのサイズを調整 */
+.chart-container {
+    width: 280px; /* 少し小さくして上部に配置 */
+    height: 280px;
+    margin: 0 auto;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
