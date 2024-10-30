@@ -1,7 +1,7 @@
 /* コンテナの基本設定 */
 .container {
-    padding: 9px 17px; /* 上部の余白を減らし、画面上部に表示 */
-    max-width: 500px;
+    padding: 8px 15px;
+    max-width: 450px;
     margin: 0 auto;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -10,11 +10,11 @@
 /* タイトルのポップエフェクト */
 h1, h2, h3 {
     color: #333;
-    margin-bottom: 10px; /* 余白を少し縮小 */
+    margin-bottom: 8px;
 }
 
 .title {
-    font-size: 24px;
+    font-size: 22px;
     animation: pop 0.5s ease-in-out infinite alternate;
 }
 
@@ -26,25 +26,32 @@ h1, h2, h3 {
 
 .question-box, .characteristics-box {
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
-    margin: 15px auto;
+    margin: 10px auto;
     max-width: 400px;
     background-color: #f9f9f9;
-    text-align: left; /* テキストを左寄せに変更 */
+    text-align: left;
 }
 
 .characteristics-box p {
-    margin: 5px 0;
-    padding-left: 10px; /* 左にインデントを追加して揃え */
+    margin: 4px 0;
+    font-size: 12px; /* テキストサイズを小さくして上部に配置 */
+    padding-left: 8px;
 }
 
-/* 診断結果のタイトルを上部に調整 */
+/* 診断結果のタイトルを調整 */
 .result-title {
-    font-size: 24px;
+    font-size: 20px;
     color: #007bff;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.result-type {
+    font-size: 18px;
+    color: #333;
+    margin-top: 4px;
 }
 
 /* ボタンのデザイン */
@@ -52,10 +59,10 @@ h1, h2, h3 {
     background-color: #153d67;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 7px 15px;
     border-radius: 8px;
-    margin-top: 15px;
-    font-size: 16px;
+    margin-top: 12px;
+    font-size: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -69,20 +76,52 @@ h1, h2, h3 {
     margin: 20px;
 }
 
-.result-type {
-    font-size: 20px;
-    color: #333;
-    margin-top: 2px;
-}
-
 /* チャートコンテナのサイズを調整 */
 .chart-container {
-    width: 280px; /* 少し小さくして上部に配置 */
-    height: 280px;
+    width: 240px; /* モバイル表示を考慮して縮小 */
+    height: 240px;
     margin: 0 auto;
 }
 
 @keyframes pop {
     0% { transform: scale(1); }
     100% { transform: scale(1.1); }
+}
+
+/* スマホ対応のメディアクエリ */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .result-title {
+        font-size: 20px;
+    }
+
+    .result-type {
+        font-size: 16px;
+    }
+
+    .characteristics-box {
+        padding: 10px;
+    }
+
+    .characteristics-box p {
+        font-size: 11px;
+        padding-left: 6px;
+    }
+
+    .next-button {
+        padding: 8px 16px;
+        font-size: 10px;
+    }
+
+    .chart-container {
+        width: 220px;
+        height: 220px;
+    }
 }
