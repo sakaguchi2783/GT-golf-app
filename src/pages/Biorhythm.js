@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // useEffectを追加
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Biorhythm.css';
 
@@ -58,11 +58,11 @@ const options = [
 ];
 
 const Biorhythm = () => {
-  const [step, setStep] = useState(1);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); 
   const [answers, setAnswers] = useState(Array(questions.length).fill(''));
   const navigate = useNavigate();
 
-  // ここを追加した: スクロール位置の保持
+  // スクロール位置の保持
   useEffect(() => {
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
@@ -78,14 +78,18 @@ const Biorhythm = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [step]);
+  }, [currentQuestionIndex]);
 
-  const handleNextStep = () => setStep(step + 1);
-
-  const handleChange = (questionIndex, value) => {
+  const handleAnswerChange = (value) => {
     const newAnswers = [...answers];
-    newAnswers[questionIndex] = value;
+    newAnswers[currentQuestionIndex] = value;
     setAnswers(newAnswers);
+
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1); // 次の質問へ
+    } else {
+      handleSubmit(); // 最後の質問が回答されたら診断結果へ
+    }
   };
 
   const handleSubmit = () => {
@@ -107,7 +111,7 @@ const Biorhythm = () => {
 
   return (
     <div className="biorhythm-container">
-      {step === 1 && (
+      {currentQuestionIndex === 0 && (
         <div className="intro-text">
           <h2>バイオリズム診断</h2>
           <h3>「あなたの好不調がわかる！」</h3>
@@ -131,31 +135,28 @@ const Biorhythm = () => {
             映画やドラマなどのジャンルを探し、<br />
             潜在的欲求を明確にしてみましょう。
           </p>
-          <button onClick={handleNextStep}>次へ</button>
+          <button onClick={() => setCurrentQuestionIndex(1)}>次へ</button>
         </div>
       )}
 
-      {step === 2 && (
+      {currentQuestionIndex > 0 && currentQuestionIndex <= questions.length && (
         <div className="question-section">
           <h2>質問に答えてください</h2>
-          {questions.map((question, questionIndex) => (
-            <div key={questionIndex} className="question-box">
-              <p>{question}</p>
-              {options[questionIndex].map((option, optionIndex) => (
-                <label key={optionIndex} className="option">
-                  <input
-                    type="radio"
-                    name={`question-${questionIndex}`}
-                    value={option.value}
-                    checked={answers[questionIndex] === option.value}
-                    onChange={() => handleChange(questionIndex, option.value)}
-                  />
-                  {option.label}
-                </label>
-              ))}
-            </div>
-          ))}
-          <button onClick={handleSubmit}>診断結果を見る</button>
+          <div className="question-box">
+            <p>{questions[currentQuestionIndex - 1]}</p>
+            {options[currentQuestionIndex - 1].map((option, optionIndex) => (
+              <label key={optionIndex} className="option">
+                <input
+                  type="radio"
+                  name={`question-${currentQuestionIndex}`}
+                  value={option.value}
+                  checked={answers[currentQuestionIndex - 1] === option.value}
+                  onChange={() => handleAnswerChange(option.value)}
+                />
+                {option.label}
+              </label>
+            ))}
+          </div>
         </div>
       )}
     </div>
