@@ -82,7 +82,7 @@ const Biorhythm = () => {
 
   const handleAnswerChange = (value) => {
     const newAnswers = [...answers];
-    newAnswers[currentQuestionIndex] = value;
+    newAnswers[currentQuestionIndex] = Number(value); // 値を数値として保存
     setAnswers(newAnswers);
 
     if (currentQuestionIndex < questions.length - 1) {
@@ -149,7 +149,7 @@ const Biorhythm = () => {
                   type="radio"
                   name={`question-${currentQuestionIndex}`}
                   value={option.value}
-                  checked={answers[currentQuestionIndex - 1] === option.value}
+                  checked={answers[currentQuestionIndex - 1] === Number(option.value)}
                   onChange={() => handleAnswerChange(option.value)}
                 />
                 {option.label}
