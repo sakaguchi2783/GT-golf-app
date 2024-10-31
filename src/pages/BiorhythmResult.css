@@ -41,7 +41,7 @@
   .category-item {
     position: absolute;
     width: auto; /* 幅を自動に調整 */
-    max-width: 120px; /* スマホでの横幅を制限 */
+    max-width: 200px; /* スマホでの横幅を制限 */
     height: 20px;
     display: flex;
     justify-content: center;
