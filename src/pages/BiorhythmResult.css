@@ -1,4 +1,5 @@
 .biorhythm-result-container {
+    /* ページ全体の設定。テキスト中央揃え、Arialフォント、基本文字色 */
     padding: 20px;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -6,76 +7,188 @@
   }
   
   .result-section {
-    margin-bottom: 20px;
+    /* 各結果セクション間の余白 */
+    margin-bottom: 10px;
   }
   
   .circular-graph {
+    /* 中央の円形グラフの枠 */
     position: relative;
-    width: 260px;
-    height: 260px;
-    margin: 0 auto;
+    width: 240px; /* 全体の直径を設定 */
+    height: 240px;
+    margin: 0 auto; /* 中央揃え */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    border: 2px dashed #b0c4de; /* 線だけを表示 */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* わずかな影を追加 */
-    background: transparent;
+    border-radius: 50%; /* 円形にする */
+    border: 2px dashed #fdfdfd; /* 円を線だけで表示 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* 円周に影を追加して立体感を演出 */
+    background: transparent; /* 背景色を透明に設定 */
   }
   
   .graph-container {
+    /* 円形グラフ内部のカテゴリアイテムを配置するコンテナ */
     position: relative;
-    width: 260px;
-    height: 260px;
+    width: 100%; /* レスポンシブ対応で全幅を指定 */
+    max-width: 260px;
+    height: auto;
+    padding-top: 100%; /* 正方形領域を確保 */
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
   .category-item {
+    /* 各カテゴリ（赤、青、灰色）のスタイル */
     position: absolute;
-    width: 90px;
-    height: 40px;
+    width: 110px; /* アイテムの横幅を設定 */
+    height: 20px; /* アイテムの高さを設定 */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    font-weight: bold;
-    color: white;
-    transform: translate(-50%, -50%);
+    border-radius: 8%; /* 角を丸めてボタン風に */
+    font-weight: bold; /* 太字で強調 */
+    color: white; /* 文字色を白に */
+    transform: translate(-50%, -50%); /* 中央基準の位置指定 */
     text-align: center;
-    opacity: 0.9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    opacity: 0.9; /* 半透明にして軽さを演出 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 軽い影を追加 */
+    transition: transform 0.3s, opacity 0.3s; /* ホバー時のエフェクトのスムーズな変化 */
+    font-size: 0.6rem; /* スマホ表示用にフォントサイズを調整 */
   }
   
-  .category-item:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  /* ポップエフェクトのアニメーション */
+  .category-item.red,
+  .category-item.blue {
+    /* 赤と青のカテゴリアイテムにポップエフェクトを適用 */
+    animation: popEffect 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes popEffect {
+    /* ポップエフェクトのキーアニメーション */
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1); /* アイテムを拡大して強調 */
+      opacity: 1; /* 透明度を少し上げる */
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.9;
+    }
   }
   
   .category-item.red {
-    background-color: #ff4d4f;
+    /* 赤色カテゴリアイテムの背景色 */
+    background-color: #9b0303;
   }
   
   .category-item.blue {
-    background-color: #1890ff;
+    /* 青色カテゴリアイテムの背景色 */
+    background-color: #6e7171;
   }
   
   .category-item.gray {
+    /* 灰色カテゴリアイテムの背景色と文字色 */
     background-color: #d9d9d9;
     color: #333;
   }
   
   .center-image {
+    /* 中央の画像の設定 */
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px; /* 画像のサイズを少し小さく調整 */
-    height: 100px;
-    opacity: 1; /* 完全に見えるように設定 */
-    z-index: 1; /* 画像を前面に表示 */
-    border-radius: 50%;
+    transform: translate(-50%, -50%); /* 中央基準の位置指定 */
+    width: 90px; /* スマホ表示に適したサイズ */
+    height: 90px;
+    opacity: 1; /* 透明度なし（完全に表示） */
+    z-index: 1; /* 最前面に表示 */
+    border-radius: 50%; /* 円形にする */
+  }
+  
+  /* モバイル対応 */
+  @media (max-width: 480px) {
+    .circular-graph {
+      /* モバイル用に円形グラフのサイズを小さく */
+      width: 180px;
+      height: 180px;
+    }
+  
+    .category-item {
+      /* モバイル用にカテゴリアイテムのサイズとフォントサイズを小さく */
+      width: 70px;
+      height: 35px;
+      font-size: 0.8rem;
+    }
+  
+    .center-image {
+      /* モバイル用に中心画像を小さく */
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* ボタン間の余白を追加 */
+    margin-top: 15px;
+  }
+  
+  .button-container button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #153651;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-container button:hover {
+    background-color: #505050;
+  }
+  
+/* 作品ジャンルの全体コンテナ */
+.genre-container {
+    font-size: 0.7rem; /* 全体を30％ほど小さく */
+    background-color: #f8f9fa; /* 薄いグレーの背景色 */
+    border: 1px solid #d3d3d3; /* グレーの枠線 */
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px 0 15px; /* 円形表示との間にスペースを追加 */
+    text-align: center;
+  }
+  
+  /* 現在の作品ジャンルラベル */
+  .current-genre-label, .next-genre-label {
+    margin: 2px 0 1px; /* 上下のマージン調整で間隔を縮める */
+    color: #333;
+  }
+  
+  /* 現在の作品ジャンル表示 */
+  .current-genre {
+    padding: 5px 10px;
+    background-color: #9b0303; /* 赤色の背景 */
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  /* 次の作品ジャンル表示 */
+  .next-genre {
+    padding: 5px 10px;
+    background-color: #6e7171; /* 青色の背景 */
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
   }
   

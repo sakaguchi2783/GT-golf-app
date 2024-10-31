@@ -97,13 +97,13 @@ const Biorhythm = () => {
     let result = '';
 
     if (total <= 7) {
-      result = '戦争・復讐劇 系';
+      result = '戦争・復讐劇の物語';
     } else if (total <= 14) {
-      result = '戦後サバイバル系';
+      result = '戦後サバイバル系の物語';
     } else if (total <= 21) {
-      result = '弱者が強者を倒す系';
+      result = '弱者が強者を倒す物語';
     } else {
-      result = '平和な日常系';
+      result = '平和な日常の物語';
     }
 
     navigate(`/biorhythm-result?result=${result}`);

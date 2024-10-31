@@ -5,10 +5,10 @@ import './BiorhythmResult.css';
 import biorhythmImage from '../images/biorhythm.jpg';
 
 const categories = [
-  '戦争・復讐劇 系',
-  '戦後サバイバル系',
-  '弱者が強者を倒す系',
-  '平和な日常系'
+  '戦争・復讐劇の物語',
+  '戦後サバイバル系の物語',
+  '弱者が強者を倒す物語',
+  '平和な日常の物語'
 ];
 
 const phaseAdvice = {
@@ -59,8 +59,8 @@ const BiorhythmResult = () => {
 
   return (
     <div className="biorhythm-result-container">
-      <h1>バイオリズム診断結果</h1>
-
+      <h4>バイオリズム診断結果</h4>
+  
       {step === 0 && (
         <div className="result-section">
           <div className="circular-graph">
@@ -72,54 +72,73 @@ const BiorhythmResult = () => {
                 const x = 120 * Math.cos((angle * Math.PI) / 180);
                 const y = 120 * Math.sin((angle * Math.PI) / 180);
                 return (
-<div
-  key={index}
-  className={`category-item ${isCurrent ? 'red' : isNext ? 'blue' : 'gray'}`}
-  style={{
-    top: `calc(50% + ${y}px)`,
-    left: `calc(50% + ${x}px)`,
-  }}
->
-  {category}
-</div>
+                  <div
+                    key={index}
+                    className={`category-item ${isCurrent ? 'red' : isNext ? 'blue' : 'gray'}`}
+                    style={{
+                      top: `calc(50% + ${y}px)`,
+                      left: `calc(50% + ${x}px)`,
+                    }}
+                  >
+                    {category}
+                  </div>
                 );
               })}
               <img src={biorhythmImage} alt="Biorhythm Cycle" className="center-image" />
             </div>
           </div>
-          <p>今のあなたが潜在的に見たい作品は「{result}」です。</p>
-          <button onClick={handleNextStep}>次へ</button>
+          
+          {/* 作品ジャンルの枠付き表示 */}
+          <div className="genre-container">
+            <p className="current-genre-label">▼今のあなたが潜在的に見たいと感じている作品ジャンルは▼</p>
+            <p className="current-genre">{result}</p>
+            
+            <p className="next-genre-label">▼約2週間後に見たくなる作品ジャンルは▼</p>
+            <p className="next-genre">{categories[nextIndex]}</p>
+          </div>
+  
+          <div className="button-container">
+            {step > 0 && <button onClick={handlePreviousStep}>前へ</button>}
+            <button onClick={handleNextStep}>次へ</button>
+          </div>
         </div>
-      )}
-
+      )}  
+  
       {step === 1 && (
         <div className="result-section">
           <h2>補足説明</h2>
           <p>この図は、私たち人間が繰り返してきた歴史を表しています...</p>
-          <button onClick={handlePreviousStep}>前へ</button>
-          <button onClick={handleNextStep}>次へ</button>
+          <div className="button-container">
+            <button onClick={handlePreviousStep}>前へ</button>
+            <button onClick={handleNextStep}>次へ</button>
+          </div>
         </div>
       )}
-
+  
       {step === 2 && (
         <div className="result-section">
           <h2>タイプ別の好不調の診断結果</h2>
           <p>あなたのタイプは：{style4Result}</p>
           <p>{currentPhaseAdvice}</p>
-          <button onClick={handlePreviousStep}>前へ</button>
-          <button onClick={handleNextStep}>次へ</button>
+          <div className="button-container">
+            <button onClick={handlePreviousStep}>前へ</button>
+            <button onClick={handleNextStep}>次へ</button>
+          </div>
         </div>
       )}
-
+  
       {step === 3 && (
         <div className="result-section">
           <h2>タイプ別の補足</h2>
           <p>さらに詳しい情報やアドバイスがここに表示されます。</p>
-          <button onClick={handlePreviousStep}>前へ</button>
+          <div className="button-container">
+            <button onClick={handlePreviousStep}>前へ</button>
+          </div>
         </div>
       )}
     </div>
   );
+  
 };
 
 export default BiorhythmResult;
