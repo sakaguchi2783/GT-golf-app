@@ -69,7 +69,7 @@ const BiorhythmResult = () => {
   const isCurrent = index === currentIndex;
   const isNext = index === nextIndex;
   const angle = (index / categories.length) * 360;
-  const radius = 130; // 円の半径を少し増やして調整
+  const radius = 105; // 円の半径を少し増やして調整
   const x = radius * Math.cos((angle * Math.PI) / 180);
   const y = radius * Math.sin((angle * Math.PI) / 180);
   return (
