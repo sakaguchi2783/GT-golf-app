@@ -58,27 +58,18 @@ const options = [
 ];
 
 const Biorhythm = () => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); 
-  const [answers, setAnswers] = useState(Array(questions.length).fill(''));
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState(Array(questions.length).fill(0));
   const navigate = useNavigate();
 
-  // スクロール位置の保持とエラーハンドリング
   useEffect(() => {
-    try {
-      const scrollPosition = sessionStorage.getItem("scrollPosition");
-      if (scrollPosition) {
-        window.scrollTo(0, parseInt(scrollPosition, 10));
-      }
-    } catch (error) {
-      console.error("Failed to retrieve scroll position:", error);
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition, 10));
     }
 
     const handleScroll = () => {
-      try {
-        sessionStorage.setItem("scrollPosition", window.scrollY);
-      } catch (error) {
-        console.error("Failed to set scroll position:", error);
-      }
+      sessionStorage.setItem("scrollPosition", window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -88,15 +79,16 @@ const Biorhythm = () => {
     };
   }, [currentQuestionIndex]);
 
-  const handleAnswerChange = (value) => {
+  const handleAnswerChange = (event) => {
+    const value = event.target.value;
     const newAnswers = [...answers];
     newAnswers[currentQuestionIndex] = Number(value);
     setAnswers(newAnswers);
 
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1); // 次の質問へ
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      handleSubmit(); // 最後の質問が回答されたら診断結果へ
+      handleSubmit();
     }
   };
 
@@ -157,8 +149,8 @@ const Biorhythm = () => {
                   type="radio"
                   name={`question-${currentQuestionIndex}`}
                   value={option.value}
-                  checked={answers[currentQuestionIndex - 1] === option.value}
-                  onChange={() => handleAnswerChange(option.value)}
+                  checked={answers[currentQuestionIndex] === option.value}
+                  onChange={handleAnswerChange}
                 />
                 {option.label}
               </label>
