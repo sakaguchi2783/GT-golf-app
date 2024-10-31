@@ -41,7 +41,7 @@
   .category-item {
     position: absolute;
     width: auto; /* 幅を自動に調整 */
-    max-width: 80px; /* スマホでの横幅を制限 */
+    max-width: 120px; /* スマホでの横幅を制限 */
     height: 20px;
     display: flex;
     justify-content: center;
@@ -103,8 +103,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* 中央基準の位置指定 */
-    width: 90px; /* スマホ表示に適したサイズ */
-    height: 90px;
+    width: 120px; /* スマホ表示に適したサイズ */
+    height: 120px;
     opacity: 1; /* 透明度なし（完全に表示） */
     z-index: 1; /* 最前面に表示 */
     border-radius: 50%; /* 円形にする */
@@ -157,8 +157,8 @@
 /* 作品ジャンルの全体コンテナ */
 .genre-container {
     font-size: 0.7rem; /* 全体を30％ほど小さく */
-    background-color: #c8caca; /* 薄いグレーの背景色 */
-    border: 1px solid #d3d3d3; /* グレーの枠線 */
+    background-color: #e7e7e7; /* 薄いグレーの背景色 */
+    border: 1px solid #8d8d8d; /* グレーの枠線 */
     border-radius: 8px;
     padding: 10px;
     margin: 20px 0 15px; /* 円形表示との間にスペースを追加 */
