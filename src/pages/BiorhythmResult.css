@@ -103,8 +103,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* 中央基準の位置指定 */
-    width: 140px; /* スマホ表示に適したサイズ */
-    height: 140px;
+    width: 160px; /* スマホ表示に適したサイズ */
+    height: 160px;
     opacity: 1; /* 透明度なし（完全に表示） */
     z-index: 1; /* 最前面に表示 */
     border-radius: 50%; /* 円形にする */
@@ -120,7 +120,7 @@
   
     .category-item {
       /* モバイル用にカテゴリアイテムのサイズとフォントサイズを小さく */
-      width: 90px;
+      width: 110px;
       font-size: 0.55rem;
     }
   
