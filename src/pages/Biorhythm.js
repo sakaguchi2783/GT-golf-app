@@ -62,15 +62,23 @@ const Biorhythm = () => {
   const [answers, setAnswers] = useState(Array(questions.length).fill(''));
   const navigate = useNavigate();
 
-  // スクロール位置の保持
+  // スクロール位置の保持とエラーハンドリング
   useEffect(() => {
-    const scrollPosition = sessionStorage.getItem("scrollPosition");
-    if (scrollPosition) {
-      window.scrollTo(0, parseInt(scrollPosition, 10));
+    try {
+      const scrollPosition = sessionStorage.getItem("scrollPosition");
+      if (scrollPosition) {
+        window.scrollTo(0, parseInt(scrollPosition, 10));
+      }
+    } catch (error) {
+      console.error("Failed to retrieve scroll position:", error);
     }
 
     const handleScroll = () => {
-      sessionStorage.setItem("scrollPosition", window.scrollY);
+      try {
+        sessionStorage.setItem("scrollPosition", window.scrollY);
+      } catch (error) {
+        console.error("Failed to set scroll position:", error);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -82,7 +90,7 @@ const Biorhythm = () => {
 
   const handleAnswerChange = (value) => {
     const newAnswers = [...answers];
-    newAnswers[currentQuestionIndex] = Number(value); // 値を数値として保存
+    newAnswers[currentQuestionIndex] = Number(value);
     setAnswers(newAnswers);
 
     if (currentQuestionIndex < questions.length - 1) {
@@ -149,7 +157,7 @@ const Biorhythm = () => {
                   type="radio"
                   name={`question-${currentQuestionIndex}`}
                   value={option.value}
-                  checked={answers[currentQuestionIndex - 1] === Number(option.value)}
+                  checked={answers[currentQuestionIndex - 1] === option.value}
                   onChange={() => handleAnswerChange(option.value)}
                 />
                 {option.label}
