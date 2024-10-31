@@ -39,22 +39,23 @@
   }
   
   .category-item {
-    /* 各カテゴリ（赤、濃いグレー、灰色）のスタイル */
     position: absolute;
-    width: 190px; /* アイテムの横幅を設定 */
-    height: 20px; /* アイテムの高さを設定 */
+    width: auto; /* 幅を自動に調整 */
+    max-width: 80px; /* スマホでの横幅を制限 */
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8%; /* 角を丸めてボタン風に */
-    font-weight: bold; /* 太字で強調 */
-    color: white; /* 文字色を白に */
-    transform: translate(-50%, -50%); /* 中央基準の位置指定 */
+    font-weight: bold;
+    color: white;
+    transform: translate(-50%, -50%);
     text-align: center;
-    opacity: 0.9; /* 半透明にして軽さを演出 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 軽い影を追加 */
-    transition: transform 0.3s, opacity 0.3s; /* ホバー時のエフェクトのスムーズな変化 */
-    font-size: 0.6rem; /* スマホ表示用にフォントサイズを調整 */
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, opacity 0.3s;
+    font-size: 0.6rem; /* 小さくして1行に収める */
+    padding: 2px 4px; /* 内側の余白を調整 */
   }
   
   /* ポップエフェクトのアニメーション */
@@ -121,7 +122,7 @@
       /* モバイル用にカテゴリアイテムのサイズとフォントサイズを小さく */
       width: 70px;
       height: 35px;
-      font-size: 0.8rem;
+      font-size: 0.55rem;
     }
   
     .center-image {
