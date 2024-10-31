@@ -1,175 +1,81 @@
 .biorhythm-result-container {
-    padding: 10px;
+    padding: 20px;
     text-align: center;
-}
-
-.intro-text {
-    background-color: #f5f5f5;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: left;
-}
-
-.result-box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-.result-text {
-    color: #007bff;
-}
-
-.next-phase-text {
-    color: #ff5733;
-}
-
-.result-grid {
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .result-section {
+    margin-bottom: 20px;
+  }
+  
+  .circular-graph {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 15px 0;
-}
-
-@media (min-width: 600px) {
-    .result-grid {
-      flex-direction: row;
-    }
-}
-
-.phase {
-    flex: 1;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    text-align: left;
-    background-color: #cccccc;
-}
-
-.blue-phase {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.arrow {
-    font-size: 24px;
-    font-weight: bold;
-    color: #011223;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px dashed #b0c4de; /* 線だけを表示 */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* わずかな影を追加 */
+    background: transparent;
+  }
+  
+  .graph-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
     display: flex;
     align-items: center;
-}
-
-.type-result {
-    margin-top: 20px;
-}
-
-.type-result h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.user-type-box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-.state-table {
-    display: grid;
-    gap: 5px;
-    margin-top: 20px;
-    border-spacing: 0;
-    overflow-x: auto; /* 横スクロール対応 */
-    overflow-y: auto; /* 縦スクロール */
-    max-height: 400px; /* 必要に応じて高さ制限を追加 */
-}
-
-.state-row {
+    justify-content: center;
+  }
+  
+  .category-item {
+    position: absolute;
+    width: 90px;
+    height: 40px;
     display: flex;
-    border-bottom: 1px solid #ddd;
-}
-
-.highlight-type .type-cell {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.type-cell {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
     font-weight: bold;
+    color: white;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  
+  .category-item:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .category-item.red {
+    background-color: #ff4d4f;
+  }
+  
+  .category-item.blue {
+    background-color: #1890ff;
+  }
+  
+  .category-item.gray {
+    background-color: #d9d9d9;
     color: #333;
-    background-color: #e0e0e0;
-}
-
-.state-cell {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-    background-color: #f8f9fa;
-}
-
-.state-cell.blue-phase {
-    background-color: #007bff;
-    color: #fff;
-}
-
-
-/*
-/* Biorhythm.css */
-.biorhythm-container {
-    padding: 20px;
   }
   
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .description {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-  
-  .question-box {
-    margin: 15px 0;
-  }
-  
-  .options label {
-    display: block;
-  }
-  
-  /* BiorhythmResult.css */
-  .result-container {
-    padding: 20px;
-  }
-  
-  .result-title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .result-text, .result-description {
-    margin-top: 10px;
-  }
-  
-  .phase-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .phase-box {
-    width: 45%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+  .center-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px; /* 画像のサイズを少し小さく調整 */
+    height: 100px;
+    opacity: 1; /* 完全に見えるように設定 */
+    z-index: 1; /* 画像を前面に表示 */
+    border-radius: 50%;
   }
   

@@ -47,24 +47,39 @@ button:hover {
 .option {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
-  background: #f8f9fa;
-  border-radius: 5px;
-  margin: 5px 0;
+  background-color: #415a75;
+  color: rgb(249, 247, 247);
+  border-radius: 8px;
+  margin: 10px 0;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.option:hover {
+  background-color: #0056b3;
 }
 
 .option input[type="radio"] {
-  margin-right: 10px;
+  display: none; /* ラジオボタン自体を非表示に */
 }
 
+.option input[type="radio"]:checked + .option {
+  background-color: #76b0ee;
+  border: 2px solid #004080;
+}
+
+/* モバイル対応 */
 @media (max-width: 600px) {
   .biorhythm-container {
     padding: 10px;
   }
 
   .intro-text p {
-    font-size: 10px; /* モバイル向けにフォントサイズを調整 */
+    font-size: 10px;
     line-height: 1.4;
   }
 
