@@ -65,25 +65,27 @@ const BiorhythmResult = () => {
         <div className="result-section">
           <div className="circular-graph">
             <div className="graph-container">
-              {categories.map((category, index) => {
-                const isCurrent = index === currentIndex;
-                const isNext = index === nextIndex;
-                const angle = (index / categories.length) * 360;
-                const x = 120 * Math.cos((angle * Math.PI) / 180);
-                const y = 120 * Math.sin((angle * Math.PI) / 180);
-                return (
-                  <div
-                    key={index}
-                    className={`category-item ${isCurrent ? 'red' : isNext ? 'blue' : 'gray'}`}
-                    style={{
-                      top: `calc(50% + ${y}px)`,
-                      left: `calc(50% + ${x}px)`,
-                    }}
-                  >
-                    {category}
-                  </div>
-                );
-              })}
+            {categories.map((category, index) => {
+  const isCurrent = index === currentIndex;
+  const isNext = index === nextIndex;
+  const angle = (index / categories.length) * 360;
+  const radius = 130; // 円の半径を少し増やして調整
+  const x = radius * Math.cos((angle * Math.PI) / 180);
+  const y = radius * Math.sin((angle * Math.PI) / 180);
+  return (
+    <div
+      key={index}
+      className={`category-item ${isCurrent ? 'red' : isNext ? 'blue' : 'gray'}`}
+      style={{
+        top: `calc(50% + ${y}px)`,
+        left: `calc(50% + ${x}px)`,
+      }}
+    >
+      {category}
+    </div>
+  );
+})}
+
               <img src={biorhythmImage} alt="Biorhythm Cycle" className="center-image" />
             </div>
           </div>
