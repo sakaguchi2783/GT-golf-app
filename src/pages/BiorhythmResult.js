@@ -117,12 +117,14 @@ const BiorhythmResult = () => {
   {step === 1 && (
         <div className="result-section">
           <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '300px', margin: '0 auto', display: 'block' }} />
-          <p style={{ fontSize: '14px', marginTop: '10px', lineHeight: '1.5' }}>
-            この図は、これまで私達人間が繰り返してきた「歴史」を表しています。
-            この図をよく見ると、あなたが普段見ている映画やドラマがこの４つのジャンルのどれかに属していることに気づくでしょう。
+          <p style={{ fontSize: '8px', marginTop: '10px', lineHeight: '1.0' }}>
+            この図は、これまで私達人間が繰り返してきた「歴史」を表しています。<br />
+            この図をよく見ると、あなたが普段見ている映画やドラマが、<br />
+            この４つのジャンルのどれかに属していることに気づくでしょう。
           </p>
-          <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
-            今あなたが潜在的に見たいと感じているのは以下のようなジャンルで、これを摂取することで次のフェーズに移行します。
+          <p style={{ fontSize: '8px', lineHeight: '1.0' }}>
+            今あなたが潜在的に見たいと感じているのは『下記の表』ようなジャンルで、<br />
+            これを（食事のように）摂取することで次のフェーズに移行します。<br />
             この移行は、約２週間で切り替わると言われています。
           </p>
           
@@ -150,13 +152,13 @@ const BiorhythmResult = () => {
             </table>
           </div>
 
-          <p style={{ fontSize: '14px', lineHeight: '1.5', marginTop: '10px' }}>
-            ここまで理解できましたか？本題はここからです。
-            この診断結果が『あなたの好不調（状態）を示すカギ』になります。
+          <p style={{ fontSize: '8px', lineHeight: '1.0', marginTop: '10px' }}>
+            ここまで理解できましたか？本題はここからです。<br />
+            この診断結果が『あなたの好不調（状態）を示すカギ』になります。<br />
             「あなたの今の調子がどうなのか？」結果を見てみましょう！
           </p>
           
-          <div className="button-container" style={{ marginTop: '10px' }}>
+          <div className="button-container" style={{ marginTop: '1px' }}>
             <button onClick={handlePreviousStep}>前へ</button>
             <button onClick={handleNextStep}>次へ</button>
           </div>
