@@ -116,7 +116,7 @@ const BiorhythmResult = () => {
   
   {step === 1 && (
         <div className="result-section">
-          <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '300px', margin: '0 auto', display: 'block' }} />
+          <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '230px', margin: '0 auto', display: 'block' }} />
           <p style={{ fontSize: '8px', marginTop: '10px', lineHeight: '1.0' }}>
             この図は、これまで私達人間が繰り返してきた「歴史」を表しています。<br />
             この図をよく見ると、あなたが普段見ている映画やドラマが、<br />
