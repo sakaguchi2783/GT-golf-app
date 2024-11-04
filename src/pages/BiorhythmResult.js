@@ -13,10 +13,10 @@ const categories = [
 ];
 
 const phaseAdvice = {
-  'フレックスタイプ': ['調子◎ チャレンジの時期', '調子○ 直感を信じて行動', '調子△ できることだけ集中', '調子✕ 休息の時期'],
-  'エースタイプ': ['調子✕ 休息の時期', '調子△ できることだけ集中', '調子○ 直感を信じて行動', '調子◎ チャレンジの時期'],
-  'パワータイプ': ['調子△ できることだけ集中', '調子✕ 休息の時期', '調子◎ チャレンジの時期', '調子○ 直感を信じて行動'],
-  'バランサータイプ': ['調子○ 直感を信じて行動', '調子△ できることだけ集中', '調子✕ 休息の時期', '調子◎ チャレンジの時期'],
+  'フレックスタイプ': [ '調子〇 直感を信じて行動', '調子△ できることだけ集中', '調子✕ 休息の時期','調子◎ チャレンジの時期'],
+  'エースタイプ': [ '調子✕ 休息の時期', '調子◎ チャレンジの時期','調子〇 直感を信じて行動','調子△ できることだけ集中'],
+  'パワータイプ': ['調子◎ チャレンジの時期', '調子〇 直感を信じて行動','調子△ できることだけ集中', '調子✕ 休息の時期' ],
+  'バランサータイプ': [ '調子△ できることだけ集中', '調子✕ 休息の時期', '調子◎ チャレンジの時期','調子〇 直感を信じて行動',],
 };
 
 const movieGenres = [
@@ -67,7 +67,7 @@ const BiorhythmResult = () => {
 
   return (
     <div className="biorhythm-result-container">
-      <h4>バイオリズム診断結果</h4>
+      <h4>『バイオリズム診断結果』</h4>
   
       {step === 0 && (
         <div className="result-section">
@@ -116,7 +116,7 @@ const BiorhythmResult = () => {
   
   {step === 1 && (
         <div className="result-section">
-          <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '230px', margin: '0 auto', display: 'block' }} />
+          <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '250px', margin: '0 auto', display: 'block' }} />
           <p style={{ fontSize: '8px', marginTop: '10px', lineHeight: '1.0' }}>
             この図は、これまで私達人間が繰り返してきた「歴史」を表しています。<br />
             この図をよく見ると、あなたが普段見ている映画やドラマが、<br />
@@ -160,23 +160,66 @@ const BiorhythmResult = () => {
           
           <div className="button-container" style={{ marginTop: '1px' }}>
             <button onClick={handlePreviousStep}>前へ</button>
-            <button onClick={handleNextStep}>次へ</button>
+            <button onClick={handleNextStep}>タイプ別好不調の診断結果</button>
           </div>
         </div>
       )}
 
   
-      {step === 2 && (
-        <div className="result-section">
-          <h2>タイプ別の好不調の診断結果</h2>
-          <p>あなたのタイプは：{style4Result}</p>
-          <p>{currentPhaseAdvice}</p>
-          <div className="button-container">
-            <button onClick={handlePreviousStep}>前へ</button>
-            <button onClick={handleNextStep}>次へ</button>
-          </div>
+{step === 2 && (
+  <div className="result-section">
+    <p>----------タイプ別の好不調の診断結果----------</p>
+    <div className="type-result">
+      {/* ユーザーのタイプと診断結果 */}
+      <div className="user-type-box">
+        <p>あなたのタイプは：<strong>{style4Result}</strong></p>
+        <p>{style4Result}のあなたは：<strong>{currentPhaseAdvice}</strong></p>
+      </div>
+
+      {/* タイプ別の好不調の表 */}
+      <div className="state-table">
+        {/* 表の上部にカテゴリ表示 */}
+        <div className="state-row category-header">
+          <div className="type-cell">バイオリズム診断</div>
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className={`category-cell ${index === currentIndex ? 'red' : index === nextIndex ? 'blue' : 'gray'}`}
+            >
+              {category}
+            </div>
+          ))}
         </div>
-      )}
+
+        {/* タイプごとの診断結果 */}
+        {Object.keys(phaseAdvice).map((type) => (
+          <div key={type} className={`state-row ${type === style4Result ? 'highlight-type' : ''}`}>
+            <div className="type-cell">{type}</div>
+            {phaseAdvice[type].map((phase, index) => (
+              <div
+                key={index}
+                className={`state-cell ${type === style4Result && phase === currentPhaseAdvice ? 'blue-phase' : ''}`}
+              >
+                {phase}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* 診断の説明文 */}
+      <p>●現在のあなたの調子は、◎、〇、△、✕の4段階で表示されます。<br />
+      ここで、スタイル４で診断したあなたのタイプが関係してきます。</p>
+    </div>
+    {/* 次へ/前へボタン */}
+    <div className="button-container">
+      <button onClick={handlePreviousStep}>バイオリズム診断へ戻る</button>
+      <button onClick={handleNextStep}>タイプ別診断補足説明へ</button>
+    </div>
+  </div>
+)}
+
+
   
       {step === 3 && (
         <div className="result-section">

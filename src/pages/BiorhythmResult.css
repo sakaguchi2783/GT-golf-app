@@ -194,4 +194,85 @@
     margin-bottom: 5px;
     font-weight: bold;
   }
+
+  /*STEP2のCSS*/
+
+  .user-type-box {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: clamp(12px, 2vw, 16px);
+  }
+  
+  .state-table {
+    width: 100%;
+    margin-top: 20px;
+    font-size: clamp(10px, 1.8vw, 14px);
+  }
+  
+  .state-row {
+    display: flex;
+    border-bottom: 5px solid #ddd;
+    padding: 5px 0;
+  }
+  
+  .category-header {
+    background-color: #f9f9f9;
+    font-weight: bold;
+  }
+  
+  .highlight-type {
+    background-color: #f0f8ff;
+  }
+  
+  .type-cell {
+    width: 20%;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    white-space: nowrap;
+  }
+  
+  .category-cell {
+    width: 20%;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+  }
+  
+  .category-cell.red {
+    background-color: #9b0303;
+    color: white;
+  }
+  
+  .category-cell.blue {
+    background-color: #6e7171;
+    color: white;
+  }
+  
+  .category-cell.gray {
+    background-color: lightgray;
+    color: white;
+  }
+  
+  .state-cell {
+    width: 20%;
+    text-align: center;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .blue-phase {
+    background-color: #6e7171;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* ボタンのレイアウト調整 */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
   
