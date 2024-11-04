@@ -9,7 +9,8 @@ const questions = [
   '4⃣『最近、自己嫌悪や落ち込みを感じる頻度はどれくらいですか？』',
   '5⃣『自分の感情をコントロールできていると感じますか？』',
   '6⃣『最近、気分が変わりやすいと感じることがありましたか？』',
-  '7⃣『リラックスやリフレッシュをする時間は確保できていますか？』'
+  '7⃣『リラックスやリフレッシュをする時間は確保できていますか？』',
+  '7⃣『リラックスやリフレッシュをする時間は確保できていますか？』',
 ];
 
 const options = [
@@ -54,7 +55,13 @@ const options = [
     { label: '時々確保できている', value: 2 },
     { label: 'あまり確保できていない', value: 3 },
     { label: 'ほとんど確保できていない', value: 4 }
-  ]
+  ],
+  [
+    { label: '十分に確保できている', value: 1 },
+    { label: '時々確保できている', value: 2 },
+    { label: 'あまり確保できていない', value: 3 },
+    { label: 'ほとんど確保できていない', value: 4 }
+  ],
 ];
 
 const Biorhythm = () => {
@@ -85,10 +92,10 @@ const Biorhythm = () => {
     newAnswers[currentQuestionIndex] = Number(value);
     setAnswers(newAnswers);
 
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    if (currentQuestionIndex < questions.length - 1) { // 修正箇所
+      setCurrentQuestionIndex(currentQuestionIndex + 1); // 次の質問へ
     } else {
-      handleSubmit();
+      handleSubmit(); // 最後の質問が回答されたら診断結果へ
     }
   };
 
@@ -108,6 +115,7 @@ const Biorhythm = () => {
 
     navigate(`/biorhythm-result?result=${result}`);
   };
+
 
   return (
     <div className="biorhythm-container">

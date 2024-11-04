@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 import './BiorhythmResult.css';
 import biorhythmImage from '../images/biorhythm.jpg';
+import loopImage from '../images/loop.jpg'; // loop画像をimagesフォルダからインポート
 
 const categories = [
   '戦争・復讐劇の物語',
@@ -17,6 +18,13 @@ const phaseAdvice = {
   'パワータイプ': ['調子△ できることだけ集中', '調子✕ 休息の時期', '調子◎ チャレンジの時期', '調子○ 直感を信じて行動'],
   'バランサータイプ': ['調子○ 直感を信じて行動', '調子△ できることだけ集中', '調子✕ 休息の時期', '調子◎ チャレンジの時期'],
 };
+
+const movieGenres = [
+  { category: '戦争・復讐劇 系', genres: 'アクション, ホラー, 戦争ドラマ' },
+  { category: '戦後サバイバル系', genres: '世界崩壊後のサバイバル, 冒険ドラマ' },
+  { category: '弱者が強者を倒す系', genres: 'ヒーローもの, 逆転劇, ドラマ' },
+  { category: '平和な日常系', genres: '恋愛ドラマ, コメディ, ヒューマンドラマ' }
+];
 
 const BiorhythmResult = () => {
   const location = useLocation();
@@ -106,16 +114,55 @@ const BiorhythmResult = () => {
         </div>
       )}  
   
-      {step === 1 && (
+  {step === 1 && (
         <div className="result-section">
-          <h2>補足説明</h2>
-          <p>この図は、私たち人間が繰り返してきた歴史を表しています...</p>
-          <div className="button-container">
+          <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '300px', margin: '0 auto', display: 'block' }} />
+          <p style={{ fontSize: '14px', marginTop: '10px', lineHeight: '1.5' }}>
+            この図は、これまで私達人間が繰り返してきた「歴史」を表しています。
+            この図をよく見ると、あなたが普段見ている映画やドラマがこの４つのジャンルのどれかに属していることに気づくでしょう。
+          </p>
+          <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
+            今あなたが潜在的に見たいと感じているのは以下のようなジャンルで、これを摂取することで次のフェーズに移行します。
+            この移行は、約２週間で切り替わると言われています。
+          </p>
+          
+          <div style={{ marginTop: '20px', textAlign: 'left' }}>
+            <h3 style={{ fontSize: '16px' }}>おすすめジャンル(映画・アニメ・ドラマ)</h3>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <tbody>
+                {movieGenres.map((genre, index) => (
+                  <tr key={index} style={{ borderBottom: '2px solid gray' }}>
+                    <td style={{
+                      backgroundColor: index === currentIndex ? '#9b0303' : index === nextIndex ? '#6e7171' : 'lightgray', 
+                      color: 'white', 
+                      padding: '3px',
+                      textAlign: 'center',
+                      fontWeight: 'bold',
+                      animation: index === currentIndex || index === nextIndex ? 'flash 1s ease-in-out infinite alternate' : 'none',
+                      fontSize: 'clamp(8px, 1.2vw, 10px)'
+                    }}>
+                      {genre.category}
+                    </td>
+                    <td style={{ padding: '2px', textAlign: 'left', fontSize: 'clamp(8px, 1.2vw, 10px)' }}>{genre.genres}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p style={{ fontSize: '14px', lineHeight: '1.5', marginTop: '10px' }}>
+            ここまで理解できましたか？本題はここからです。
+            この診断結果が『あなたの好不調（状態）を示すカギ』になります。
+            「あなたの今の調子がどうなのか？」結果を見てみましょう！
+          </p>
+          
+          <div className="button-container" style={{ marginTop: '10px' }}>
             <button onClick={handlePreviousStep}>前へ</button>
             <button onClick={handleNextStep}>次へ</button>
           </div>
         </div>
       )}
+
   
       {step === 2 && (
         <div className="result-section">
