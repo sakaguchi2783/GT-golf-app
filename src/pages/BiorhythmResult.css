@@ -207,7 +207,13 @@
   .user-type-box {
     text-align: left;
     margin-bottom: 15px;
-    font-size: clamp(12px, 2vw, 16px);
+    font-size: clamp(14px, 2vw, 16px);
+    border: 4px solid #707070; /* Border color and thickness */
+    padding: 10px;          /* Space inside the border */
+    border-radius: 8px;     /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    margin-bottom: 10px;    /* Space below the box */
+    text-align: left;       /* Align text to the left */
   }
   
   .state-table {
