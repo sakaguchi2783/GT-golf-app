@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { supabase } from '../supabaseClient';
 import './MyPage.css';
 
@@ -7,8 +7,7 @@ const MyPage = () => {
     id: '',
     type: '',
     biorhythm: '',
-    recentScore: '',
-    advice: ''
+    advice: '',
   });
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const MyPage = () => {
       if (userId) {
         const { data, error } = await supabase
           .from('users')
-          .select('id, type, recent_score, biorhythm, advice')
+          .select('id, type, biorhythm, advice')
           .eq('id', userId)
           .single();
         
@@ -27,9 +26,8 @@ const MyPage = () => {
           setUserData({
             id: data.id,
             type: data.type,
-            biorhythm: data.biorhythm,
-            recentScore: data.recent_score || '',
-            advice: data.advice || ''
+            biorhythm: data.biorhythm || '情報がありません',
+            advice: data.advice || '情報がありません',
           });
         }
       }
@@ -44,9 +42,8 @@ const MyPage = () => {
       <div className="user-info">
         <p><strong>ID：</strong>{userData.id}</p>
         <p><strong>あなたのタイプ：</strong>{userData.type}</p>
-        <p><strong>あなたの状態：</strong>{userData.biorhythm}</p>
-        <p><strong>直近のスコア：</strong>{userData.recentScore}</p>
-        <p><strong>これから約2週間意識すること：</strong>{userData.advice}</p>
+        <p><strong>潜在的に見たい物語：</strong>{userData.biorhythm}</p>
+        <p><strong>あなたの好不調：</strong>{userData.advice}</p>
       </div>
     </div>
   );

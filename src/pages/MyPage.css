@@ -1,16 +1,18 @@
 .my-page-container {
-    padding: 20px;
-  }
-  
-  .user-info {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .user-info p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
+  padding: 20px;
+  text-align: center; /* 中央揃え */
+}
+
+.user-info {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 400px; /* 最大幅を設定 */
+  margin: 0 auto; /* 中央揃え */
+}
+
+.user-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
