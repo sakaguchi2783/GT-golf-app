@@ -168,7 +168,7 @@ const BiorhythmResult = () => {
 
       {step === 2 && (
         <div className="result-section">
-          <p className="flashing-text"><strong>------------タイプ別『現在、好不調』の診断結果------------</strong></p>
+          <p className="flashing-text"><strong>-----タイプ別『現在、好不調』の診断結果-----</strong></p>
           <div className="type-result">
             <div className="user-type-box">
               <p>あなたのタイプは：<strong>{style4Result}</strong></p>

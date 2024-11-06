@@ -143,7 +143,7 @@
     justify-content: center;
     gap: 10px; /* ボタン間の余白を追加 */
     margin-top: 5px;
-    font-size: 10px;
+    font-size: 8px;
   }
   
   .button-container button {
