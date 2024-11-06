@@ -211,15 +211,19 @@ const BiorhythmResult = () => {
         </div>
       )}
 
-      {step === 3 && (
-        <div className="result-section">
-          <h2>タイプ別の補足</h2>
-          <p>さらに詳しい情報やアドバイスがここに表示されます。</p>
-          <div className="button-container">
-            <button onClick={handlePreviousStep}>前へ</button>
-          </div>
-        </div>
-      )}
+{step === 3 && (
+  <div className="result-section">
+    <img 
+      src={require('../images/hosoku.jpg')} 
+      alt="タイプ別診断の補足説明" 
+      style={{ width: '100%', maxWidth: '700px', margin: '20px auto', display: 'block' }}
+    />
+    <div className="button-container">
+      <button onClick={handlePreviousStep}>前へ</button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
