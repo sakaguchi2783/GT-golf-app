@@ -204,8 +204,8 @@ const BiorhythmResult = () => {
           </div>
 
           <div className="button-container">
-            <button onClick={handlePreviousStep}>バイオリズム診断へ戻る</button>
-            <button onClick={handleNextStep}>タイプ別診断補足説明へ</button>
+            <button onClick={handlePreviousStep}>バイオリズム診断 戻る</button>
+            <button onClick={handleNextStep}>タイプ別診断 補足説明</button>
           </div>
         </div>
       )}
