@@ -216,7 +216,7 @@ const BiorhythmResult = () => {
     <img 
       src={require('../images/hosoku.jpg')} 
       alt="タイプ別診断の補足説明" 
-      style={{ width: '100%', maxWidth: '700px', margin: '4px auto', display: 'block' }}
+      style={{ width: '100%', maxWidth: '900px', margin: '4px auto', display: 'block' }}
     />
     <div className="button-container">
       <button onClick={handlePreviousStep}>前へ</button>
