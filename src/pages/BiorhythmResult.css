@@ -141,9 +141,9 @@
   .button-container {
     display: flex;
     justify-content: center;
-    gap: 10px; /* ボタン間の余白を追加 */
+    gap: 8px; /* ボタン間の余白を追加 */
     margin-top: 5px;
-    font-size: 8px;
+    font-size: 7px;
   }
   
   .button-container button {
@@ -243,7 +243,7 @@
     width: 20%;
     text-align: center;
     padding: 5px;
-    font-weight: bold;
+    font-size: 10px;
   }
   
   .category-cell.red {
@@ -281,7 +281,6 @@
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
-    font-size: 8px;
   }
   
   .flashing-text {
