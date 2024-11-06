@@ -5,6 +5,12 @@
     font-family: Arial, sans-serif;
     color: #333;
   }
+
+  /*タイトル*/
+  h1, h2, h3, h4,h5,h6{
+    color: #333;
+    margin-bottom: 2px;
+}
   
   .result-section {
     /* 各結果セクション間の余白 */
@@ -137,6 +143,7 @@
     justify-content: center;
     gap: 10px; /* ボタン間の余白を追加 */
     margin-top: 5px;
+    font-size: 10px;
   }
   
   .button-container button {
@@ -274,5 +281,19 @@
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+  }
+  
+  .flashing-text {
+    font-weight: bold;
+    animation: flash 1s infinite alternate;
+  }
+  
+  @keyframes flash {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.5;
+    }
   }
   

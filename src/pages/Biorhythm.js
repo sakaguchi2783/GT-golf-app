@@ -148,7 +148,7 @@ const Biorhythm = () => {
 
       {currentQuestionIndex > 0 && currentQuestionIndex <= questions.length && (
         <div className="question-section">
-          <h2>質問に答えてください</h2>
+          <h2>７つの質問に答えてください</h2>
           <div className="question-box">
             <p>{questions[currentQuestionIndex - 1]}</p>
             {options[currentQuestionIndex - 1].map((option, optionIndex) => (
