@@ -1,6 +1,5 @@
 .my-page-container {
   padding: 20px;
-  text-align: center; /* 中央揃え */
 }
 
 .user-info {
@@ -8,8 +7,7 @@
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  max-width: 400px; /* 最大幅を設定 */
-  margin: 0 auto; /* 中央揃え */
+  text-align: left; /* 左寄せに調整 */
 }
 
 .user-info p {
