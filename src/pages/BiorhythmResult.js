@@ -197,9 +197,9 @@ const BiorhythmResult = () => {
               ))}
             </div>
 
-            <p style={{ fontSize: '10px', lineHeight: '1.0', marginTop: '1px' }}>
+            <p style={{ fontSize: '10px', lineHeight: '1.0', marginTop: '3px' }}>
               ●現在のあなたの調子は、◎、〇、△、✕の4段階で表示されます。<br />
-              ここで、スタイル４で診断したあなたのタイプが関係してきます。
+              ●ようやく、ここでスタイル４で診断したあなたのタイプが関係してきます。
             </p>
           </div>
 
