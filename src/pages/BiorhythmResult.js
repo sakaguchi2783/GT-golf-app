@@ -115,17 +115,7 @@ const BiorhythmResult = () => {
 
       {step === 1 && (
         <div className="result-section">
-          <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '250px', margin: '0 auto', display: 'block' }} />
-          <p style={{ fontSize: '8px', marginTop: '10px', lineHeight: '1.0' }}>
-            この図は、これまで私達人間が繰り返してきた「歴史」を表しています。<br />
-            この図をよく見ると、あなたが普段見ている映画やドラマが、<br />
-            この４つのジャンルのどれかに属していることに気づくでしょう。
-          </p>
-          <p style={{ fontSize: '8px', lineHeight: '1.0' }}>
-            今あなたが潜在的に見たいと感じているのは『下記の表』のようなジャンルで、<br />
-            これを（食事のように）摂取することで次のフェーズに移行します。<br />
-            この移行は、約２週間で切り替わると言われています。
-          </p>
+          <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '400px', margin: '0 auto', display: 'block' }} />
 
           <div style={{ marginTop: '20px', textAlign: 'left' }}>
             <h3 style={{ fontSize: '16px' }}>おすすめジャンル(映画・アニメ・ドラマ)</h3>
