@@ -160,8 +160,8 @@ const BiorhythmResult = () => {
           <p className="flashing-text"><strong>-------タイプ別『現在、好不調』の診断結果-------</strong></p>
           <div className="type-result">
             <div className="user-type-box">
-              <p>あなたのタイプは：<strong>{style4Result}</strong></p>
-              <p>{style4Result}のあなたは：<strong>{currentPhaseAdvice}</strong></p>
+              <p>　あなたのタイプは：<strong>{style4Result}</strong></p>
+              <p>　{style4Result}のあなたは：<strong>{currentPhaseAdvice}</strong></p>
             </div>
 
             <div className="state-table">
