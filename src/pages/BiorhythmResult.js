@@ -67,7 +67,7 @@ const BiorhythmResult = () => {
 
   return (
     <div className="biorhythm-result-container">
-      <h4 className="title">『バイオリズム診断結果』</h4>
+      <h5 className="title">『バイオリズム診断結果』</h5>
 
       {step === 0 && (
         <div className="result-section">
@@ -143,7 +143,7 @@ const BiorhythmResult = () => {
             </table>
           </div>
 
-          <p style={{ fontSize: '12px', lineHeight: '1.0', marginTop: '1px' }}>
+          <p style={{ fontSize: '9px', lineHeight: '1.0', marginTop: '1px' }}>
             この診断結果が、次の『あなたの好不調（状態）を示すカギ』になります。<br />
             「あなたの今の調子がどうなのか？」結果を見てみましょう！
           </p>
