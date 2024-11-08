@@ -143,9 +143,8 @@ const BiorhythmResult = () => {
             </table>
           </div>
 
-          <p style={{ fontSize: '8px', lineHeight: '1.0', marginTop: '1px' }}>
-            ここまで理解できましたか？本題はここからです。<br />
-            この診断結果が『あなたの好不調（状態）を示すカギ』になります。<br />
+          <p style={{ fontSize: '12px', lineHeight: '1.0', marginTop: '1px' }}>
+            この診断結果が、次の『あなたの好不調（状態）を示すカギ』になります。<br />
             「あなたの今の調子がどうなのか？」結果を見てみましょう！
           </p>
 
