@@ -142,7 +142,7 @@
     display: flex;
     justify-content: center;
     gap: 8px; /* ボタン間の余白を追加 */
-    margin-top: 5px;
+    margin-top: 1px;
     font-size: 7px;
   }
   

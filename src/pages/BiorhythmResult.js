@@ -118,7 +118,7 @@ const BiorhythmResult = () => {
           <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '400px', margin: '0 auto', display: 'block' }} />
 
           <div style={{ marginTop: '2px', textAlign: 'left' }}>
-            <h3 style={{ fontSize: '16px' }}>おすすめジャンル(映画・アニメ・ドラマ)</h3>
+            <h3 style={{ fontSize: '12px' }}>おすすめジャンル(映画・アニメ・ドラマ)</h3>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <tbody>
                 {movieGenres.map((genre, index) => (
