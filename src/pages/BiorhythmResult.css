@@ -14,7 +14,7 @@
   
   .result-section {
     /* 各結果セクション間の余白 */
-    margin-bottom: 10px;
+    margin-bottom: 2px;
   }
   
   .circular-graph {
@@ -168,7 +168,7 @@
     border: 1px solid #8d8d8d; /* グレーの枠線 */
     border-radius: 8px;
     padding: 10px;
-    margin: 15px 0 1px; /* 円形表示との間にスペースを追加 */
+    margin: 8px 0 8px; /* 円形表示との間にスペースを追加 */
     text-align: center;
   }
   

@@ -117,7 +117,7 @@ const BiorhythmResult = () => {
         <div className="result-section">
           <img src={loopImage} alt="人が繰り返す歴史" className="loop-image" style={{ width: '100%', maxWidth: '400px', margin: '0 auto', display: 'block' }} />
 
-          <div style={{ marginTop: '20px', textAlign: 'left' }}>
+          <div style={{ marginTop: '2px', textAlign: 'left' }}>
             <h3 style={{ fontSize: '16px' }}>おすすめジャンル(映画・アニメ・ドラマ)</h3>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <tbody>
@@ -143,7 +143,7 @@ const BiorhythmResult = () => {
             </table>
           </div>
 
-          <p style={{ fontSize: '8px', lineHeight: '1.0', marginTop: '10px' }}>
+          <p style={{ fontSize: '8px', lineHeight: '1.0', marginTop: '1px' }}>
             ここまで理解できましたか？本題はここからです。<br />
             この診断結果が『あなたの好不調（状態）を示すカギ』になります。<br />
             「あなたの今の調子がどうなのか？」結果を見てみましょう！
