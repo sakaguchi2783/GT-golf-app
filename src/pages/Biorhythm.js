@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Biorhythm.css';
+import prologueImage from '../images/prologue.jpg'; // Adjust the path as needed
 
 const questions = [
   '1⃣『今日、感情的にどれくらい安定していると感じますか？』',
@@ -123,25 +124,9 @@ const Biorhythm = () => {
         <div className="intro-text">
           <h2>バイオリズム診断</h2>
           <h3>「あなたの好不調がわかる！」</h3>
-          <p>
-            今から、あなたの感情的なことに触れていきます。<br /><br />
-            あなたは普段から、“YouTube”や“NETFLIX”などの、<br />
-            動画配信サービスから、<br />
-            ドラマや映画、ニュースやエンタメを見ていますか？<br /><br />
-            絶対、見てますよね？<br /><br />
-            今、すでにオススメで提示される番組や作品があるかもしれませんが、<br />
-            それだけでは真の満足は得れません。<br />
-            実は誰もが、潜在的に「“今は”こんなジャンルが見たい！」<br />
-            こんな意識を常に持っています。<br /><br />
-            あなたは自分の潜在意識を明確に把握することができますか？<br />
-            「今は、甘いものが食べたい…次は、辛いものを食べたい…」という、<br />
-            食と同じように、見る映画やドラマのジャンルにも<br />
-            反射的に潜在的な欲求が生まれます。<br /><br />
-            現代は、本や動画、様々なコンテンツがありますが、<br />
-            「あなたが潜在的に欲している物事」<br />
-            それを探るために、まず「あなたが見たいであろう…」<br />
-            映画やドラマなどのジャンルから潜在意識を探ってみましょう…。
-          </p>
+          <div className="image-container">
+      <img src={prologueImage} alt="Prologue" className="prologue-image" />
+    </div>
           <button onClick={() => setCurrentQuestionIndex(1)}>次へ</button>
         </div>
       )}
