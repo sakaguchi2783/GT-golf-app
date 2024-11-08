@@ -67,7 +67,7 @@ const BiorhythmResult = () => {
 
   return (
     <div className="biorhythm-result-container">
-      <h5 className="title">『バイオリズム診断結果』</h5>
+      <p className="title bold">『バイオリズム診断結果』</p>
 
       {step === 0 && (
         <div className="result-section">
