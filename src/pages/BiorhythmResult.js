@@ -67,7 +67,7 @@ const BiorhythmResult = () => {
 
   return (
     <div className="biorhythm-result-container">
-      <p className="title bold">『バイオリズム診断結果』</p>
+      <p><strong>『バイオリズム診断結果』</strong></p>
 
       {step === 0 && (
         <div className="result-section">
@@ -186,10 +186,8 @@ const BiorhythmResult = () => {
               ))}
             </div>
 
-            <p style={{ fontSize: '10px', lineHeight: '1.0', marginTop: '3px' }}>
-              ■ 現在のあなたの調子は、◎、〇、△、✕の4段階で表示されます。<br />
-              <br />
-              スタイル４の診断結果が反映されています。より詳細は補足説明へ。
+            <p style={{ fontSize: '9px', lineHeight: '1.0', marginTop: '3px' }}>
+              ■ 現在のあなたの調子は、◎、〇、△、✕の4段階で表示されます。詳細は補足説明へ。
             </p>
           </div>
 

@@ -206,12 +206,12 @@
 
   .user-type-box {
     text-align: left;
-    font-size: clamp(14px, 1vw, 10px);
-    border: 4px solid #707070; /* Border color and thickness */
-    padding: 5px;          /* Space inside the border */
-    border-radius: 4px;     /* Rounded corners */
+    font-size: clamp(10px, 1vw, 1px);
+    border: 2px solid #707070; /* Border color and thickness */
+    padding: 1px;          /* Space inside the border */
+    border-radius: 2px;     /* Rounded corners */
     background-color: #f9f9f9; /* Light background color */
-    margin-bottom: 8px;    /* Space below the box */
+    margin-bottom: 2px;    /* Space below the box */
     text-align: left;       /* Align text to the left */
   }
   
